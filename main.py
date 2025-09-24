@@ -38,3 +38,7 @@ async def send_email(request: Request):
     }
     r = requests.post("https://api.sendgrid.com/v3/mail/send", json=payload, headers=headers)
     return {"status": r.status_code, "message": "Email dikirim" if r.status_code == 202 else "Gagal mengirim"}
+if __name__ == "__main__":
+    import uvicorn
+    print("🚀 Zeus mencoba bangkit...")
+    uvicorn.run("main:app", host="0.0.0.0", port=10000)
